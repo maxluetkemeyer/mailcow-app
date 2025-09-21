@@ -16,7 +16,7 @@ class AliasView extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: http.get(
-        Uri.parse('https://10.100.0.1/api/v1/get/mailbox/all/'),
+        Uri.parse('https://vm1.fritz.box/api/v1/get/mailbox/all/'),
         headers: {
           "X-API-Key": MAILCOW_API_READ_WRITE,
           "accept": "application/json",
@@ -35,14 +35,13 @@ class AliasView extends StatelessWidget {
         List<MailcowMailbox> mailboxes = [];
 
         for (dynamic data in dataList) {
-          MailcowMailbox mailbox = MailcowMailbox.fromJson(data as Map<String, dynamic>);
+          MailcowMailbox mailbox = MailcowMailbox.fromJson(
+            data as Map<String, dynamic>,
+          );
           mailboxes.add(mailbox);
         }
 
-        return AliasContent(
-          mailboxes: mailboxes,
-          alias: alias,
-        );
+        return AliasContent(mailboxes: mailboxes, alias: alias);
       },
     );
   }

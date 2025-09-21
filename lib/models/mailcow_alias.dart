@@ -16,16 +16,11 @@ class MailcowAlias {
       domain: json["domain"],
       goto: json["goto"],
       address: json["address"],
-      id: json["id"]
+      id: json["id"],
     );
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      "domain": domain,
-      "goto": goto,
-      "address": address,
-      "id": id,
-    };
+    return {"domain": domain, "goto": goto, "address": address, "id": id};
   }
 }

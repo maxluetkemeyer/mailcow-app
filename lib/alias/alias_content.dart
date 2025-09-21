@@ -7,11 +7,7 @@ class AliasContent extends StatefulWidget {
   final List<MailcowMailbox> mailboxes;
   final MailcowAlias alias;
 
-  const AliasContent({
-    super.key,
-    required this.mailboxes,
-    required this.alias,
-  });
+  const AliasContent({super.key, required this.mailboxes, required this.alias});
 
   @override
   State<AliasContent> createState() => _AliasContentState();
@@ -40,9 +36,7 @@ class _AliasContentState extends State<AliasContent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Edit Alias"),
-      ),
+      appBar: AppBar(title: const Text("Edit Alias")),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Padding(
@@ -59,8 +53,12 @@ class _AliasContentState extends State<AliasContent> {
               ),
               const SizedBox(height: 16),
               DropdownMenu<MailcowMailbox>(
-                initialSelection:
-                    widget.mailboxes.where((MailcowMailbox mailbox) => mailbox.username == widget.alias.goto).first,
+                initialSelection: widget.mailboxes
+                    .where(
+                      (MailcowMailbox mailbox) =>
+                          mailbox.username == widget.alias.goto,
+                    )
+                    .first,
                 controller: mailboxesController,
                 // requestFocusOnTap is enabled/disabled by platforms when it is null.
                 // On mobile platforms, this is false by default. Setting this to true will
@@ -73,12 +71,16 @@ class _AliasContentState extends State<AliasContent> {
                     selectedMailbox = mailbox;
                   });
                 },
-                dropdownMenuEntries: widget.mailboxes.map<DropdownMenuEntry<MailcowMailbox>>((MailcowMailbox mailbox) {
-                  return DropdownMenuEntry<MailcowMailbox>(
-                    value: mailbox,
-                    label: mailbox.username,
-                  );
-                }).toList(),
+                dropdownMenuEntries: widget.mailboxes
+                    .map<DropdownMenuEntry<MailcowMailbox>>((
+                      MailcowMailbox mailbox,
+                    ) {
+                      return DropdownMenuEntry<MailcowMailbox>(
+                        value: mailbox,
+                        label: mailbox.username,
+                      );
+                    })
+                    .toList(),
               ),
               const SizedBox(height: 16),
               FilledButton(

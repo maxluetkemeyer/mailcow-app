@@ -32,25 +32,18 @@ class _HomeContentState extends State<HomeContent> {
           floating: true,
           expandedHeight: 140,
           actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.search),
-            ),
+            IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
             IconButton(
               icon: const Icon(Icons.replay_outlined),
               onPressed: () {
                 Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const App(),
-                    ),
-                    (route) => false);
+                  context,
+                  MaterialPageRoute(builder: (context) => const App()),
+                  (route) => false,
+                );
               },
             ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.more_vert),
-            ),
+            IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
           ],
           flexibleSpace: FlexibleSpaceBar(
             titlePadding: const EdgeInsets.all(0),
@@ -80,13 +73,17 @@ class _HomeContentState extends State<HomeContent> {
               title: Text(alias.address),
               subtitle: Text(alias.goto),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => AliasView(alias: alias))).then((value) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AliasView(alias: alias),
+                  ),
+                ).then((value) {
                   Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const App(),
-                      ),
-                      (route) => false);
+                    context,
+                    MaterialPageRoute(builder: (context) => const App()),
+                    (route) => false,
+                  );
                 });
               },
             );

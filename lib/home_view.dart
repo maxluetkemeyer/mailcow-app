@@ -13,7 +13,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: http.get(
-        Uri.parse('https://10.100.0.1/api/v1/get/alias/all'),
+        Uri.parse('https://vm1.fritz.box/api/v1/get/alias/all'),
         headers: {
           "X-API-Key": MAILCOW_API_READ_WRITE,
           "accept": "application/json",
@@ -31,13 +31,13 @@ class HomeView extends StatelessWidget {
 
         List<MailcowAlias> aliases = [];
         for (dynamic data in dataList) {
-          MailcowAlias alias = MailcowAlias.fromJson(data as Map<String, dynamic>);
+          MailcowAlias alias = MailcowAlias.fromJson(
+            data as Map<String, dynamic>,
+          );
           aliases.add(alias);
         }
 
-        return HomeContent(
-          aliases: aliases,
-        );
+        return HomeContent(aliases: aliases);
       },
     );
   }

@@ -27,18 +27,12 @@ class _MySliverState extends State<MySliver> {
           floating: true,
           expandedHeight: 140,
           actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.search),
-            ),
+            IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
             IconButton(
               onPressed: () {},
               icon: const Icon(Icons.replay_outlined),
             ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.more_vert),
-            ),
+            IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
           ],
           flexibleSpace: FlexibleSpaceBar(
             titlePadding: const EdgeInsets.all(0),
@@ -70,24 +64,18 @@ class _MySliverState extends State<MySliver> {
           separatorBuilder: (context, index) => const Divider(),
           itemCount: 20,
         ),
-        SliverToBoxAdapter(
-          child: Container(),
-        ),
+        SliverToBoxAdapter(child: Container()),
         SliverList(
-          delegate: SliverChildListDelegate(
-            [
-              //FBimage(path: "ressorts/${widget.ressort.id}.png"),
-              const Padding(
-                padding: EdgeInsets.all(12),
-                child: Text(
-                  "widget.ressort.description",
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
+          delegate: SliverChildListDelegate([
+            //FBimage(path: "ressorts/${widget.ressort.id}.png"),
+            const Padding(
+              padding: EdgeInsets.all(12),
+              child: Text(
+                "widget.ressort.description",
+                style: TextStyle(fontSize: 16),
               ),
-            ],
-          ),
+            ),
+          ]),
         ),
       ],
     );

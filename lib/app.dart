@@ -18,13 +18,15 @@ class _AppState extends State<App> {
       body: const HomeView(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const CreateAliasView())).then((value) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const CreateAliasView()),
+          ).then((value) {
             Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const App(),
-                ),
-                (route) => false);
+              context,
+              MaterialPageRoute(builder: (context) => const App()),
+              (route) => false,
+            );
           });
         },
         child: const Icon(Icons.add),
